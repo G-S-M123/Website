@@ -1,0 +1,811 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SMARDX CLUSTER</title>
+    <style>
+        .body {
+            margin: 0%;
+            font-family: system-ui;
+        }
+
+        .parallax,
+        .parallaxl {
+            background-image: url("https://images.pexels.com/photos/3687999/pexels-photo-3687999.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500");
+            height: max-content;
+            background-attachment: fixed;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+
+        .page-title {
+            background: whitesmoke;
+            text-align: center;
+            color: rgb(34, 29, 29);
+            padding: 50px;
+            font-variant: small-caps;
+            font-size: 100px;
+            font-family: fantasy;
+            letter-spacing: 20px;
+        }
+
+        sticky {
+            position: fixed;
+            top: 0;
+            width: 100%;
+        }
+
+        .menu {
+            background: #86c5be;
+            text-align: center;
+        }
+
+        .menu-ul {
+            margin: 0;
+            padding: 0;
+            display: inline;
+        }
+
+        .menu-ul li {
+            font-size: 17px;
+            list-style: none;
+            display: inline-block;
+            padding: 25px 25px 26px 25px;
+        }
+
+        .a-menu .a-links {
+            text-decoration: none;
+            color: white;
+        }
+
+        .menu-ul li:hover {
+            background: #5b8c5a;
+            transform: scale(1.1);
+        }
+
+        .search-box {
+            border: 1px solid white;
+            border-radius: 50px;
+            background: white;
+            width: max-content;
+            display: inline-block;
+            margin: 0px;
+        }
+
+        .search-box:hover {
+            box-shadow: 0 0 10px 2px #5b8c5a;
+            border: 1px solid #5b8c5a;
+        }
+
+        .search-input {
+            width: 250px;
+            border: none;
+            font-size: 16px;
+            outline: none;
+            background: transparent;
+            margin: 15px 0 10px 10px;
+            padding: 0px;
+        }
+
+        i {
+            font-size: 20px;
+            margin: 0 10px 0 0;
+        }
+
+        button {
+            background: transparent;
+            border: none;
+            outline: none;
+        }
+
+        .container {
+            margin: 50px 50px 50px 5%;
+            width: 90%;
+            text-align: center;
+        }
+
+        .categories,
+        .items {
+            width: max-content;
+            margin: 25px;
+            border: 1px solid #184d47;
+            border-radius: 0 0 50px 50px;
+            display: inline-block;
+        }
+
+        .categories:hover,
+        .items:hover {
+            box-shadow: 0 0 10px 3px #104d47;
+        }
+
+        .item-image {
+            height: 200px;
+            width: 200px;
+            border-radius: 0 0 50px 50px;
+            padding: 10px;
+        }
+
+        .image-title {
+            text-align: center;
+            padding: 10px;
+            font-weight: bold;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        .title { 
+            padding: 50px;
+            font-size: 50px;
+            font-weight: bold;
+            letter-spacing: 10px;
+            color: white;
+            background: rgba(0, 0, 0, 0.5);
+        }
+
+        .deal {
+            padding: 50px;
+            font-size: 20px;
+            font-weight: bold;
+            color: white;
+            display: inline-block;
+            margin: 20px;
+            max-width: 20%;
+            background: linear-gradient(120deg, #16817a 20%, #cee397 50%, #16879a 80%);
+        }
+
+        .coupon-btn {
+            border: 1px solid white;
+            color: white;
+            margin: 10px;
+            padding: 10px;
+            border-radius: 20px;
+        }
+
+        .coupon-btn:hover {
+            box-shadow: 0 0 10px white inset;
+        }
+
+        .images {
+            display: inline-block;
+        }
+
+        .iteam-images-size {
+            height: 400px;
+            width: 300px;
+            padding: 5px
+        }
+
+        .description {
+            margin: 20px;
+            min-height: 100px;
+        }
+
+        .item-selector {
+            margin: 10px 0 0 0;
+        }
+
+        .buynow-btn {
+            border: 1px solid #184d47;
+            background: #184d47;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-weight: bold;
+            margin-top: 10px;
+            color: white;
+        }
+
+        .buynow-btn:hover {
+            border: 1px solid #5b8c5a;
+            box-shadow: 0 0 10px #5b8c5a inset;
+        }
+
+        .parallax {
+            background-image: url("https://images.pexels.com/photos/3687999/pexels-photo-3687999.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500");
+        }
+
+        .footer {
+            background: rgba(0, 0, 0, 0.5);
+            text-align: center;
+            padding: 20px;
+        }
+
+        .quick-links {
+            color: white;
+            font-size: 20px;
+            font-weight: bold;
+            display: inline-block;
+            min-width: 30%;
+        }
+
+        .quick-links ul {
+            padding: 0;
+        }
+
+        .quick-links li {
+            list-style: none;
+            padding: 10PX;
+            font-weight: 300;
+        }
+
+        a-links:hover {
+            color: #fd5e53
+        }
+
+        .copyrights {
+            font-size: 16px;
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            text-align: center;
+            margin: 15px;
+        }
+
+        .dealcontainer {
+            display: inline-block;
+        }
+
+        .end {
+            border-radius: 22px;
+            font-size: 30px;
+            text-align: center;
+            color: black;
+            background-color: aqua;
+            margin: 10px 600px;
+        }
+
+        a {
+            color: black;
+
+        }
+    </style>
+
+
+</head>
+
+<body>
+    <div class="parallax">
+        <div class="page-title">SMARDX CLUSTER</div>
+    </div>
+    <div class="menu" id="sticky">
+        <ul class="menu-ul">
+            <a href=".class" class="a-menu">
+                <li>Home</li>
+            </a>
+            <a href="payment form.html" class="a-menu" target="_blank">
+                <li>Payment form</li>
+            </a>
+            <a href="about.html" class="a-menu">
+                <li>About Us</li>
+            </a>
+            <a href="https://www.jiomart.com/" class="a-menu">
+                <li>More items</li>
+            </a>
+        </ul>
+        <div class="search-box">
+            <form>
+                <input type="text" placeholder="search..." name="search" class="search-input" />
+                <button type="sumbit"><i class="fa fa -search"></i></button>
+            </form>
+        </div>
+    </div>
+    <!--home page begins-->
+    <div class="container">
+        <a href="#oil">
+            <div class="categories">
+                <img src="https://image.shutterstock.com/image-photo/white-sugar-wooden-bowl-scoop-260nw-1046986462.jpg"
+                    class="item-images" height="300px" width=" 200px" />
+                <div class="image-title">oil</div>
+            </div>
+        </a>
+        <a href="#jeera">
+            <div class="categories">
+                <img src="https://i.ndtvimg.com/mt/cooks/2014-11/wholemeal-flour-atta.jpg" height="300px" width="200px"
+                    class="item-images" />
+                <div class="image-title">wheat ,besan,maida</div>
+            </div>
+        </a>
+        <a href="#rawa maida">
+            <div class="categories">
+                <img src="https://static.toiimg.com/photo/83135385.cms" class="item-images" height="300px"
+                    width="200px" />
+                <div class="image-title">PERSONAl care</div>
+            </div>
+        </a>
+        <a href="#poha">
+            <div class="categories">
+                <img src="https://image.shutterstock.com/image-photo/collection-seeds-food-red-lentils-260nw-717221470.jpg"
+                    height="300px" width="200px" class="item-images" />
+                <div class="image-title">DAL AND PULSES</div>
+            </div>
+        </a>
+        <a href="#oil">
+            <div class="categories">
+                <img src="https://www.homestratosphere.com/wp-content/uploads/2019/04/Different-types-of-spices-of-the-table-apr18.jpg"
+                    height="300px" width="200px" class="item-images" />
+                <div class="image-title">SPICES</div>
+            </div>
+        </a>
+        <a href="#jeera">
+            <div class="categories">
+                <img src="https://post.medicalnewstoday.com/wp-content/uploads/sites/3/2020/02/322775_2200-800x1200.jpg"
+                    height="300px" width="200px" class="item-images" />
+                <div class="image-title">RICE</div>
+            </div>
+        </a>
+        <a href="#dry fruits">
+            <div class="categories">
+                <img src="https://5.imimg.com/data5/SQ/UH/MY-2764674/mix-dry-fruits-500x500.jpg" class="item-images" height="300px"
+                    width="200px" />
+                <div class="image-title">Dry Fruits</div>
+            </div>
+        </a>
+        <a href="#poha">
+            <div class="categories">
+                <img src="https://5.imimg.com/data5/MB/HT/MY-54316299/loose-natural-tea-leaves-500x500.jpg"
+                    class="item-images" height="300px" width="200px" />
+                <div class="image-title">TEA LEAVES</div>
+            </div>
+        </a>
+    </div>
+    <!--home page ends here-->
+    <!--deals begin here-->
+    <div class="deals-container" id="deals">
+        <div class="parallax">
+            <div class="title">DEALS</div>
+        </div>
+        <div class="deal">
+            save 20% on min-purchase of 10000 on oil<br />
+            <Button class="coupon-btn">Add coupon</Button>
+        </div>
+        <div class="deal">
+            save 20% on min-purchase of 10000 on oil<br />
+            <Button class="coupon-btn">Add coupon</Button>
+        </div>
+        <div class="deal">
+            save 20% on min-purchase of 10000 on oil<br />
+            <Button class="coupon-btn">Add coupon</Button>
+        </div>
+    </div>
+    <!--deals end here-->
+    <!--veg begins here-->
+    <div class="deals-container" id="vegetable">
+        <div class="parallax">
+            <div class="title" id="oil">COOKING OILS</div>
+        </div>
+        <div class="items">
+            <div class="images">
+                <img src="https://5.imimg.com/data5/SELLER/Default/2021/3/JU/WA/GW/124607194/kings-refined-soyabean-oil-500x500.jpg"
+                    class="iteam-images-size" />
+            </div>
+            <div class="description">
+                <b>king Soyabean oil</b>
+                <div class="item-select">
+                    price:rs140per liter
+                </div>
+                <label>Qty:</label>
+                <select class="iteam-select">
+                    <option>1L</option>
+                    <option>5L</option>
+                    <option>15L</option>
+                    <option>15KG</option>
+                </select><br />
+                <button class='buynow-btn' onclick="openPayment()">buy now</button>
+            </div>
+        </div>
+        <div class="items">
+            <div class="images">
+                <img src="https://goshoplucknow.com/wp-content/uploads/2020/10/dhara1.jpg" class="iteam-images-size" />
+            </div>
+            <div class="description">
+                <b>dhara Soyabean</b>
+                <div class="item-select">
+                    price:rs150PER liter
+                </div>
+                <label>Qty:</label>
+                <select class="iteam-select">
+                    <option>1L</option>
+                    <option>5L</option>
+                    <option>15L</option>
+                    <option>15KG</option>
+                </select><br />
+                <button class='buynow-btn' onclick="openPayment()">buy now</button>
+            </div>
+        </div>
+        <div class="items">
+            <div class="images">
+                <img src="https://www.pobara.com/images/thumbs/0012169_fortune-plus-soya-health-refined-soyabean-oil-910g-1l-pouch_510.jpeg"
+                    class="iteam-images-size" />
+            </div>
+            <div class="description">
+                <b>FORTUNE OIL</b>
+                <div class="item-select">
+                    price:rs165PER LITER
+                </div>
+                <label>Qty:</label>
+                <select class="iteam-select">
+                    <option>1L</option>
+                    <option>5L</option>
+                    <option>15L</option>
+                    <option>15KG</option>
+                </select><br />
+                <button class='buynow-btn' onclick="openPayment()">buy now</button>
+            </div>
+        </div>
+        <div class="items">
+            <div class="images">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTB_AsBJVVwGv7pv6VCDd9zzJJAnha3SsKgSw&usqp=CAU"
+                    class="iteam-images-size" />
+            </div>
+            <div class="description">
+                <b>rice brend oil</b>
+                <div class="item-select">
+                    price:rs10000/250g
+                </div>
+                <label>Qty:</label>
+                <select class="iteam-select">
+                    <option>1L</option>
+                    <option>5L</option>
+                    <option>15L</option>
+                    <option>15KG</option>
+                </select><br />
+                <button class='buynow-btn' onclick="openPayment()">buy now</button>
+            </div>
+        </div>
+        <div class="items">
+            <div class="images">
+                <img src="https://www.bigbasket.com/media/uploads/p/xxl/40195402_1-fortune-goldnut-refined-groundnut-oil.jpg"
+                    class="iteam-images-size" />
+            </div>
+            <div class="description">
+                <b>ground nut oil</b>
+                <div class="item-select">
+                    price:rs10000/250g
+                </div>
+                <label>Qty:</label>
+                <select class="iteam-select">
+                    <option>1L</option>
+                    <option>5L</option>
+                    <option>15L</option>
+                    <option>15KG</option>
+                </select><br />
+                <button class='buynow-btn' onclick="openPayment()">buy now</button>
+            </div>
+        </div>
+        <div class="items">
+            <div class="images">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT_MXqHACQWtYrSEx5oqnXsJ0cu9fFhEXMM5w&usqp=CAU"
+                    class="iteam-images-size" />
+            </div>
+            <div class="description">
+                <b>muster oil</b>
+                <div class="item-select">
+                    price:rs10000/250g
+                </div>
+                <label>Qty:</label>
+                <select class="iteam-select">
+                    <option>1L</option>
+                    <option>5L</option>
+                    <option>15L</option>
+                    <option>15KG</option>
+                </select><br />
+                <button class='buynow-btn' onclick="openPayment()">buy now</button>
+            </div>
+        </div>
+    </div>
+    <div class="deals-container" id="vegetable">
+        <div class="parallax">
+            <div class="title" id="dry fruits">dry furits</div>
+        </div>
+        <div class="items">
+            <div class="images">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR_X_AlCM4Al21CuiLK6SxP6iHQ7AKIRdThVw&usqp=CAU"
+                    class="iteam-images-size" />
+            </div>
+            <div class="description">
+                <b>cashew</b>
+                <div class="item-select">
+                    price:rs1000 per
+                </div>
+                <label>Qty:</label>
+                <select class="iteam-select">
+                    <option>250g</option>
+                    <option>500g</option>
+                    <option>750g</option>
+                    <option>1000g</option>
+                </select><br />
+                <button class='buynow-btn' onclick="openPayment()">buy now</button>
+            </div>
+        </div>
+        <div class="items">
+            <div class="images">
+                <img src="https://static.toiimg.com/photo/79284525.cms" class="iteam-images-size" />
+            </div>
+            <div class="description">
+                <b>ALMOND</b>
+                <div class="item-select">
+                    price:rs800 PER KG
+                </div>
+                <label>Qty:</label>
+                <select class="iteam-select">
+                    <option>250g</option>
+                    <option>500g</option>
+                    <option>750g</option>
+                    <option>1000g</option>
+                </select><br />
+                <button class='buynow-btn' onclick="openPayment()">buy now</button>
+            </div>
+        </div>
+        <div class="items">
+            <div class="images">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSUJ5Q0y0EQdi8O-RXHwS5917eBKTqNXxf8Gg&usqp=CAU"
+                    class="iteam-images-size" />
+            </div>
+            <div class="description">
+                <b>Rasinies</b>
+                <div class="item-select">
+                    price:rs320 per kg
+                </div>
+                <label>Qty:</label>
+                <select class="iteam-select">
+                    <option>250g</option>
+                    <option>500g</option>
+                    <option>750g</option>
+                    <option>1000g</option>
+                </select><br />
+                <button class='buynow-btn' onclick="openPayment()">buy now</button>
+            </div>
+        </div>
+        <div class="items">
+            <div class="images">
+                <img src="https://images-na.ssl-images-amazon.com/images/I/41bRqfJ2FyL.jpg" class="iteam-images-size" />
+            </div>
+            <div class="description">
+                <b>fings</b>
+                <div class="item-select">
+                    price:rs800 per kg
+                </div>
+                <label>Qty:</label>
+                <select class="iteam-select">
+                    <option>250g</option>
+                    <option>500g</option>
+                    <option>750g</option>
+                    <option>1000g</option>
+                </select><br />
+                <button class='buynow-btn' onclick="openPayment()">buy now</button>
+            </div>
+        </div>
+        <div class="items">
+            <div class="images">
+                <img src="https://www.bigbasket.com/media/uploads/p/xxl/20000727_11-fresho-dates-kimia-with-seed.jpg"
+                    class="iteam-images-size" />
+            </div>
+            <div class="description">
+                <b>dates</b>
+                <div class="item-select">
+                    price: 140 rs per kg
+                </div>
+                <label>Qty:</label>
+                <select class="iteam-select">
+                    <option>250g</option>
+                    <option>500g</option>
+                    <option>750g</option>
+                    <option>1000g</option>
+                </select><br />
+                <button class='buynow-btn' onclick="openPayment()">buy now</button>
+            </div>
+        </div>
+        <div class="items">
+            <div class="images">
+                <img src="https://5.imimg.com/data5/BD/RT/EU/SELLER-39573343/pool-makana-250x250.jpg"
+                    class="iteam-images-size" />
+            </div>
+            <div class="description">
+                <b>makana</b>
+                <div class="item-select">
+                    price:rs800 per kg
+                </div>
+                <label>Qty:</label>
+                <select class="iteam-select">
+                    <option>250g</option>
+                    <option>500g</option>
+                    <option>750g</option>
+                    <option>1000g</option>
+                </select><br />
+                <button class='buynow-btn' onclick="openPayment()">buy now</button>
+            </div>
+        </div>
+    </div>
+    <div class="items">
+        <div class="images">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRC2ajLFvOZ1M-nnpqFnSrGmeBQrSpzirgmvQ&usqp=CAU"
+                class="iteam-images-size" />
+        </div>
+        <div class="description">
+            <b>black manuka </b>
+            <div class="item-select">
+                price:400 per kg
+            </div>
+            <label>Qty:</label>
+            <select class="iteam-select">
+                <option>250g</option>
+                <option>500g</option>
+                <option>750g</option>
+                <option>1000g</option>
+            </select><br />
+            <button class='buynow-btn' onclick="openPayment()">buy now</button>
+        </div>
+    </div>
+    <div class="items">
+        <div class="images">
+            <img src="https://cdn.mydukaan.io/v1/image/892x892/5396/9f801be4-2b67-4deb-95c2-8e25c4024996.png"
+                class="iteam-images-size" />
+        </div>
+        <div class="description">
+            <b>red manuka</b>
+            <div class="item-select">
+                price:380 per kg
+            </div>
+            <label>Qty:</label>
+            <select class="iteam-select">
+                <option>250g</option>
+                <option>500g</option>
+                <option>750g</option>
+                <option>1000g</option>
+            </select><br />
+            <button class='buynow-btn' onclick="openPayment()">buy now</button>
+        </div>
+    </div>
+    <div class="items">
+        <div class="images">
+            <img src="https://cdn.shopify.com/s/files/1/1410/1430/products/green-pista-dry-fruits.jpg?v=1605871972"
+                class="iteam-images-size" />
+        </div>
+        <div class="description">
+            <b>pista</b>
+            <div class="item-select">
+                price:1000 per kg
+            </div>
+            <label>Qty:</label>
+            <select class="iteam-select">
+                <option>250g</option>
+                <option>500g</option>
+                <option>750g</option>
+                <option>1000g</option>
+            </select><br />
+            <button class='buynow-btn' onclick="openPayment()">buy now</button>
+        </div>
+    </div>
+    <div class="deals-container" id="vegetable">
+        <div class="parallax">
+            <div class="title">best offer</div>
+        </div>
+        <div class="items">
+            <div class="images">
+                <img src="https://akm-img-a-in.tosshub.com/sites/pakwangali/images/stories/032019/sabudana-pakwangali_520_040519125716.jpg"
+                    class="iteam-images-size" />
+            </div>
+            <div class="description">
+                <b>sabodana</b>
+                <div class="item-select">
+                    price:55 per kg
+                </div>
+                <label>Qty:</label>
+                <select class="iteam-select">
+                    <option>1kg</option>
+                    <option>2kg</option>
+                    <option>5kg</option>
+                    <option>10kg</option>
+                </select><br />
+                <button class='buynow-btn' onclick="openPayment()">buy now</button>
+            </div>
+        </div>
+        <div class="items">
+            <div class="images">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRw_fc5zNhCm6d-hP4xapAlbgsG3xGmuhhAhAFNnG5psTwbjK2Yzlbzw6-xGn27WuUSCjvZ0UI&usqp=CAc"
+                    class="iteam-images-size" />
+            </div>
+            <div class="description">
+                <b>suruchi mirchi powder</b>
+                <div class="item-select">
+                    price:rs200 per kg
+                </div>
+                <label>Qty:</label>
+                <select class="iteam-select">
+                    <option>250g</option>
+                    <option>500g</option>
+                    <option>750g</option>
+                    <option>1000g</option>
+                </select><br />
+                <button class='buynow-btn' onclick="openPayment()">buy now</button>
+            </div>
+        </div>
+        <div class="items">
+            <div class="images">
+                <img src="https://ud-img-v2.azureedge.net/t_im_w480/u/products/qzc9oo7p03sb5qnr964x.939Z/White-Pearl-Sortex-Wheat---Unpolished-30-kg---EACH"
+                    class="iteam-images-size" />
+            </div>
+            <div class="description">
+                <b>white pearl </b>
+                <div class="item-select">
+                    price:rs760
+                </div>
+                <label>Qty:</label>
+                <select class="iteam-select">
+                    <option>5kg</option>
+                    <option>10kg</option>
+                    <option>30kg</option>
+                    <option>60kg</option>
+                </select><br />
+                <button class='buynow-btn' onclick="openPayment()">buy now</button>
+            </div>
+        </div>
+    </div>
+    <!--footer starts here-->
+    <div class="parallax">
+        <div class="footer">
+            <div class="quick-links">
+                <div>location</div>
+                <ul>
+                    <li>
+                        <a href="" class="a-links"></a>adders 1
+                    </li>
+                    <li>
+                        <a href="" class="a-links"></a>adders 2
+                    </li>
+                    <li>
+                        <a href="" class="a-links"></a>adders 3
+                    </li>
+                </ul>
+            </div>
+            <div class="quick-links">
+                <div>careers</div>
+                <ul>
+                    <li>
+                        <a href="" class="a-links"></a>packing staff
+                    </li>
+                    <li>
+                        <a href="" class="a-links"></a>delivary agents
+                    </li>
+                    <li>
+                        <a href="" class="a-links"></a>shelf fillers
+                    </li>
+                </ul>
+            </div>
+            <div class="quick-links">
+                <div>Quick links</div>
+                <ul>
+                    <li>
+                        <a href="" class="a-links"></a>contact us
+                    </li>
+                    <li>
+                        <a href="" class="a-links"></a>FaQ
+                    </li>
+                    <li>
+                        <a href="" class="a-links"></a>HELP
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="copyrights"></div>
+    <i class="far fa copyrights fa-la"></i>
+    <!--footer end here-->
+    <br><br><br><br><br><br>
+    <div class="end">
+        <a href="#top">GO TO TOP </a>
+    </div>
+    <p>created by Mahesh,Somesh,Rasika,Diya</p>
+
+<script>
+	function openPayment(){
+window.open('payment form.html')
+}
+
+</script>
+</body>
+
+</html>
